@@ -1,33 +1,49 @@
 repos:
+  # Standard pre-commit hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
       - id: trailing-whitespace
+        name: Remove trailing whitespace
+        args: [--markdown-linebreak-ext=md]
       - id: end-of-file-fixer
+        name: Ensure file ends with a newline
+        exclude: ^(LICENSE|\.min\.(js|css))$
       - id: check-yaml
+        name: Validate YAML files
+        files: \.(yml|yaml)$
+        args: [--allow-multiple-documents]
       - id: check-json
+        name: Validate JSON files
+        files: \.(json|json5)$
+      - id: check-merge-conflict
+        name: Detect merge conflict markers
+      - id: detect-private-key
+        name: Detect private keys in code
 
-  # - repo: https://github.com/adrienverge/yamllint
-  #   rev: v1.32.0
-  #   hooks:
-  #     - id: yamllint
-
+  # Shell script linting
   - repo: https://github.com/koalaman/shellcheck-precommit
-    rev: v0.9.0
+    rev: v0.10.0
     hooks:
       - id: shellcheck
-        files: \\.(sh|bash)$
+        name: Shell script linting with shellcheck
+        files: \.(sh|bash)$
+        args: [--severity=warning, --external-sources]
 
+  # Markdown and documentation
   - repo: local
     hooks:
       - id: markdownlint
-        name: markdownlint
+        name: Lint Markdown files
         entry: npx markdownlint-cli2
         language: system
         types: [markdown]
 
+  # Commit message validation (local hook)
+  - repo: local
+    hooks:
       - id: commitlint
-        name: commitlint
+        name: Commit message validation
         entry: npx commitlint --edit $COMMIT_MSG
         language: system
         stages: [commit-msg]
