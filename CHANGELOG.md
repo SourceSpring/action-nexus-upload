@@ -6,7 +6,7 @@
 
 ### Bug Fixes
 
-- Fixed issue with markdown lint- `MD024/no-duplicate-heading`: Multiple headings with the same conten
+- Fixed issue with markdown lint - `MD024/no-duplicate-heading`: Multiple headings with the same content.
 
 ### Features
 
