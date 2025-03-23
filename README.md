@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Upload artifact to Nexus
-        uses: <your-github-username>/action-nexus-upload@v1
+        uses: SourceSpring/action-nexus-upload@v0.1.9
         with:
           nexus-repo-url: ${{ secrets.NEXUS_URL }}
           nexus-upload-url: ${{ secrets.NEXUS_UPLOAD_URL }}
@@ -65,7 +65,7 @@ jobs:
 
 ## ✅ Example: Upload a Maven JAR
 
-```yaml
+````yaml
 name: Upload Maven JAR to Nexus
 
 on:
@@ -75,26 +75,35 @@ on:
 
 jobs:
     upload:
+        ```yaml
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout code
-                uses: actions/checkout@v2
+          - name: Checkout code
+            uses: actions/checkout@v2
 
-            - name: Upload Maven JAR to Nexus
-                uses: <your-github-username>/action-nexus-upload@v1
-                with:
-                    nexus-repo-url: ${{ secrets.NEXUS_URL }}
-                    nexus-upload-url: ${{ secrets.NEXUS_UPLOAD_URL }}
-                    nexus-username: ${{ secrets.NEXUS_USERNAME }}
-                    nexus-password: ${{ secrets.NEXUS_PASSWORD }}
-                    nexus-repository: "maven-releases"
-                    artifact-path: "build/libs/my-app-1.0.0.jar"
-                    artifact-format: "maven"
-                    artifact-group-id: "com.example"
-                    artifact-id: "my-app"
-                    artifact-version: "1.0.0"
-```
+          - name: Set up JDK 11
+            uses: actions/setup-java@v2
+            with:
+              java-version: '11'
+
+          - name: Build with Maven
+            run: mvn clean package
+
+          - name: Upload Maven JAR to Nexus
+            uses: SourceSpring/action-nexus-upload@v0.1.9
+            with:
+              nexus-repo-url: ${{ secrets.NEXUS_URL }}
+              nexus-upload-url: ${{ secrets.NEXUS_UPLOAD_URL }}
+              nexus-username: ${{ secrets.NEXUS_USERNAME }}
+              nexus-password: ${{ secrets.NEXUS_PASSWORD }}
+              nexus-repository: "maven-releases"
+              artifact-path: "target/my-app-1.0.0.jar"
+              artifact-format: "maven"
+              artifact-group-id: "com.example"
+              artifact-id: "my-app"
+              artifact-version: "1.0.0"
+        ```
 
 ---
 
@@ -108,3 +117,5 @@ Add these secrets in your GitHub repository settings:
 | `NEXUS_UPLOAD_URL` | The REST upload endpoint (usually same as `NEXUS_URL`) |
 | `NEXUS_USERNAME`   | Nexus username                                         |
 | `NEXUS_PASSWORD`   | Nexus password or token                                |
+
+````
