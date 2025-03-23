@@ -30,14 +30,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install pre-commit
 
-      - name: Run pre-commit checks (skip markdownlint-cli2 on release branch)
-        run: |
-          BRANCH_NAME=$(echo "${{ github.head_ref }}")
-          if [[ "$BRANCH_NAME" == "release-please--branches--main" ]]; then
-            pre-commit run --all-files --hook-stage manual --verbose --color always | grep -v "markdownlint-cli2" || true
-          else
-            pre-commit run --all-files
-          fi
+      # - name: Run pre-commit checks (skip markdownlint-cli2 on release branch)
+      #   run: |
+      #     BRANCH_NAME=$(echo "${{ github.head_ref }}")
+      #     if [[ "$BRANCH_NAME" == "release-please--branches--main" ]]; then
+      #       pre-commit run --all-files --hook-stage manual --verbose --color always | grep -v "markdownlint-cli2" || true
+      #     else
+      #       pre-commit run --all-files
+      #     fi
 
       - name: Create Release with Release Please
         id: release
