@@ -1,43 +1,19 @@
 # Changelog
 
-## [Unreleased]
+## [0.1.3] - 2025-03-23
 
-style [Expected: asterisk; Actual: dash]`
--### Added
-
-- New feature A
-- New feature B
-
-### Fixed
-
-**Solution**: Use a consistent unordered list style (either all asterisks or all dashes).
-
-### Suggested Fix- Bug fix A
-
-- Bug fix B
-
-## [1.0.1] - 2025-03-23
-
-###es
-
-```markdown
-# CHANGELOG
-
-## [Unreleased]
-
-### Added Added
-
-- Documentation updates
+- `MD032/blanks-around-lists`: Lists should be surrounded by blank lines.
 
 ### Bug Fixes
 
-- Fixed
+- Fixed issue with markdown lint- `MD024/no-duplicate-heading`: Multiple headings with the same conten
 
-* New feature descriptions
+### Features
 
-### Bug Fixes
+- Introduced new feature X
 
-- Fixed issue issue X
+## [0.1.2] - 2025-03-22
 
-* Fixed issue Y
-```
+### Initial Bug Fixes
+
+- Initial release

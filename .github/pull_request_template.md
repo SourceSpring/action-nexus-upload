@@ -1,6 +1,6 @@
 # 📄 PR Title Guidelines
 
-> ✅ **Your PR title must follow the Conventional Commits format**  
+> ✅ **Your PR title must follow the Conventional Commits format**
 > If applicable, prefix with the component name or path.
 
 ## Examples
@@ -20,5 +20,5 @@
 | `chore`    | Maintenance tasks (e.g., tooling, configs, dependency updates) |
 | `refactor` | Code refactoring that doesn’t change external behavior         |
 
-> ⚠ **Please double-check your PR title before submitting!**  
+> ⚠ **Please double-check your PR title before submitting!**
 > Incorrect titles may block automated release creation.
