@@ -27,5 +27,3 @@ repos:
     rev: v17.8.1
     hooks:
       - id: commitlint
-
-      
