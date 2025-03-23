@@ -56,7 +56,7 @@ jobs:
 | `nexus-password`    | ✅       | Nexus password or token for authentication                        |
 | `nexus-repository`  | ✅       | The repository name in Nexus (e.g., `maven-releases`, `raw-repo`) |
 | `artifact-path`     | ✅       | Path to the artifact file to upload                               |
-| `artifact-format`   | ✅       | Artifact type: `maven`, `npm`, `pypi`, or `raw`                   |
+| `artifact-format`   | ✅       | Artifact type: `maven`, `npm`, `PyPI`, or `raw`                   |
 | `artifact-group-id` | ❌       | Required for Maven: the group ID (e.g., `com.example`)            |
 | `artifact-id`       | ❌       | Required for Maven: the artifact ID (e.g., `my-app`)              |
 | `artifact-version`  | ❌       | Required for Maven: the artifact version (e.g., `1.0.0`)          |
