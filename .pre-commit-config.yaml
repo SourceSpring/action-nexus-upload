@@ -30,6 +30,7 @@ repos:
         files: \.(sh|bash)$
         args: [--severity=warning, --external-sources]
 
+  # Markdown and documentation
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.17.2
     hooks:
@@ -37,3 +38,12 @@ repos:
         name: Lint Markdown files with markdownlint-cli2
         files: \.md$
         config: .markdownlint-cli2.yaml
+
+  # Commit message validation (local hook)
+  - repo: local
+    hooks:
+      - id: commitlint
+        name: Commit message validation
+        entry: npx commitlint --edit
+        language: system
+        stages: [commit-msg]
