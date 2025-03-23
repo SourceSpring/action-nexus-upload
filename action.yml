@@ -85,4 +85,4 @@ runs:
 
     - name: Done
       shell: bash
-      run: echo "Artifact upload completed successfully."
+      run: echo "Artifact upload completed successfully done."
