@@ -31,7 +31,6 @@ repos:
         args: [--severity=warning, --external-sources]
 
   # Markdown and documentation (skip on release branch)
-  # Markdown and documentation (skip on release branch)
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.17.2
     hooks:
