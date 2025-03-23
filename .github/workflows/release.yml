@@ -32,6 +32,6 @@ jobs:
         run: pre-commit run --all-files
 
       - name: Run release-please
-        uses: google-github-actions/release-please-action@v4
+        uses: googleapis/release-please-action@v4
         with:
-          release-type: beta # or "beta" or "rc"
+          release-type: simple
