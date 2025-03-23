@@ -92,8 +92,7 @@ jobs:
       - name: Upload Maven JAR to Nexus
         uses: SourceSpring/action-nexus-upload@v0.1.9
         with:
-          nexus-repo-url: ${{ secrets.NEXUS_URL }}
-          nexus-upload-url: ${{ secrets.NEXUS_UPLOAD_URL }}
+          nexus-repo-url: ${{ secrets.NEXUS_URL }} or "https://nexus.myorg.com"
           nexus-username: ${{ secrets.NEXUS_USERNAME }}
           nexus-password: ${{ secrets.NEXUS_PASSWORD }}
           nexus-repository: "maven-releases"
@@ -110,9 +109,7 @@ jobs:
 
 Add these secrets in your GitHub repository settings:
 
-| Secret Name        | Purpose                                                |
-| ------------------ | ------------------------------------------------------ |
-| `NEXUS_URL`        | Base URL of your Nexus instance                        |
-| `NEXUS_UPLOAD_URL` | The REST upload endpoint (usually same as `NEXUS_URL`) |
-| `NEXUS_USERNAME`   | Nexus username                                         |
-| `NEXUS_PASSWORD`   | Nexus password or token                                |
+| Secret Name      | Purpose                 |
+| ---------------- | ----------------------- |
+| `NEXUS_USERNAME` | Nexus username          |
+| `NEXUS_PASSWORD` | Nexus password or token |
