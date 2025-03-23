@@ -15,5 +15,9 @@ jobs:
             feat
             fix
             docs
+            chore
+            refactor
+          requireScope: false
+          headerPattern: '^(feat|fix|docs|chore|refactor)(\([a-z0-9\-]+\))?: .+'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
