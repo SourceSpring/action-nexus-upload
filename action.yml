@@ -36,7 +36,6 @@ runs:
     - name: Upload artifact to Nexus
       shell: bash
       run: |
-        # Create auth and URL vars
         auth="-u ${{ inputs.nexus-username }}:${{ inputs.nexus-password }}"
         upload_url="${{ inputs.nexus-repo-url }}/service/rest/v1/components?repository=${{ inputs.nexus-repository }}"
 
