@@ -1,12 +1,14 @@
 # action-nexus-upload
 
-This GitHub Action uploads artifacts (including Maven JARs, npm packages, PyPI distributions, or raw files) to a Nexus repository.
+This GitHub Action uploads artifacts (including Maven JARs, npm packages, PyPI
+distributions, or raw files) to a Nexus repository.
 
 ---
 
 ## ✅ Usage
 
-To use this action, create a workflow file in your repository (e.g., `.github/workflows/upload.yml`) with the following content:
+To use this action, create a workflow file in your repository (e.g.,
+`.github/workflows/upload.yml`) with the following content:
 
 ```yaml
 name: Upload to Nexus
@@ -67,31 +69,31 @@ jobs:
 name: Upload Maven JAR to Nexus
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  upload:
-    runs-on: ubuntu-latest
+    upload:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+        steps:
+            - name: Checkout code
+                uses: actions/checkout@v2
 
-      - name: Upload Maven JAR to Nexus
-        uses: <your-github-username>/action-nexus-upload@v1
-        with:
-          nexus-repo-url: ${{ secrets.NEXUS_URL }}
-          nexus-upload-url: ${{ secrets.NEXUS_UPLOAD_URL }}
-          nexus-username: ${{ secrets.NEXUS_USERNAME }}
-          nexus-password: ${{ secrets.NEXUS_PASSWORD }}
-          nexus-repository: "maven-releases"
-          artifact-path: "build/libs/my-app-1.0.0.jar"
-          artifact-format: "maven"
-          artifact-group-id: "com.example"
-          artifact-id: "my-app"
-          artifact-version: "1.0.0"
+            - name: Upload Maven JAR to Nexus
+                uses: <your-github-username>/action-nexus-upload@v1
+                with:
+                    nexus-repo-url: ${{ secrets.NEXUS_URL }}
+                    nexus-upload-url: ${{ secrets.NEXUS_UPLOAD_URL }}
+                    nexus-username: ${{ secrets.NEXUS_USERNAME }}
+                    nexus-password: ${{ secrets.NEXUS_PASSWORD }}
+                    nexus-repository: "maven-releases"
+                    artifact-path: "build/libs/my-app-1.0.0.jar"
+                    artifact-format: "maven"
+                    artifact-group-id: "com.example"
+                    artifact-id: "my-app"
+                    artifact-version: "1.0.0"
 ```
 
 ---
