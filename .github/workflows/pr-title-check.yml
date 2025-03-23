@@ -3,6 +3,7 @@ name: PR Title Lint
 on:
   pull_request:
     types: [opened, edited, synchronize, reopened]
+
 jobs:
   lint-pr-title:
     runs-on: ubuntu-latest
@@ -17,6 +18,7 @@ jobs:
             chore
             refactor
           requireScope: false
-          headerPattern: '^(feat|fix|docs|chore|refactor)(\([a-z0-9\-]+\))?: .+'
+          headerPattern: '^(feat|fix|docs|chore|refactor)(\\([a-z0-9\\-]+\\))?: .+'
+          githubBaseUrl: https://api.github.com
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
