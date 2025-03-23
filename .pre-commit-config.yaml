@@ -37,7 +37,7 @@ repos:
       - id: markdownlint-cli2
         name: Lint Markdown files with markdownlint-cli2
         files: \.md$
-        config: .markdownlint-cli2.yaml
+        configs: .markdownlint-cli2.yaml
 
   # Commit message validation (local hook)
   - repo: local
