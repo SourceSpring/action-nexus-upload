@@ -48,4 +48,5 @@ jobs:
           token: ${{ secrets.RELEASE_PAT }}
 
       - name: Show release output
+        if: steps.release.outputs.release_created == 'true'
         run: echo "Released version ${{ steps.release.outputs.tag_name }}"
