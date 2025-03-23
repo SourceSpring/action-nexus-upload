@@ -31,12 +31,13 @@ repos:
         args: [--severity=warning, --external-sources]
 
   # Markdown and documentation (skip on release branch)
+  # Markdown and documentation (skip on release branch)
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.17.2
     hooks:
       - id: markdownlint-cli2
         name: Lint Markdown files with markdownlint-cli2
-        entry: sh -c '[[ "$BRANCH_NAME" == "release-please--branches--main" ]] && exit 0 || markdownlint-cli2 "$@"'
+        entry: sh -c 'branch=$(git rev-parse --abbrev-ref HEAD); [ "$branch" = "release-please--branches--main" ] && exit 0 || exec markdownlint-cli2 "$@"'
         language: system
         pass_filenames: true
         files: \.md$
