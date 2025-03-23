@@ -106,3 +106,4 @@ Add these secrets in your GitHub repository settings:
 | `NEXUS_UPLOAD_URL` | The REST upload endpoint (usually same as `NEXUS_URL`) |
 | `NEXUS_USERNAME`   | Nexus username                                         |
 | `NEXUS_PASSWORD`   | Nexus password or token                                |
+
