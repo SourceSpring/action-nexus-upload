@@ -38,7 +38,7 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           release-type: simple
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_PAT }}
 
       - name: Show release output
         run: echo "Released version ${{ steps.release.outputs.tag_name }}"
