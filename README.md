@@ -30,10 +30,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Upload artifact to Nexus
-        uses: SourceSpring/action-nexus-upload@v0.1.9
+        uses: SourceSpring/action-nexus-upload@v0.1.10
         with:
           nexus-repo-url: ${{ secrets.NEXUS_URL }}
-          nexus-upload-url: ${{ secrets.NEXUS_UPLOAD_URL }}
           nexus-username: ${{ secrets.NEXUS_USERNAME }}
           nexus-password: ${{ secrets.NEXUS_PASSWORD }}
           nexus-repository: "your-repository-name"
@@ -51,12 +50,11 @@ jobs:
 | Name                | Required | Description                                                       |
 | ------------------- | -------- | ----------------------------------------------------------------- |
 | `nexus-repo-url`    | ✅       | The Nexus REST API Base URL (e.g., `https://nexus.example.com`)   |
-| `nexus-upload-url`  | ✅       | The Nexus upload endpoint URL (usually same as `nexus-repo-url`)  |
 | `nexus-username`    | ✅       | Nexus username for authentication                                 |
 | `nexus-password`    | ✅       | Nexus password or token for authentication                        |
 | `nexus-repository`  | ✅       | The repository name in Nexus (e.g., `maven-releases`, `raw-repo`) |
 | `artifact-path`     | ✅       | Path to the artifact file to upload                               |
-| `artifact-format`   | ✅       | Artifact type: `maven`, `npm`, `pypi`, or `raw`                   |
+| `artifact-format`   | ✅       | Artifact type: `maven2`, `npm`, `pypi`, or `raw`                  |
 | `artifact-group-id` | ❌       | Required for Maven: the group ID (e.g., `com.example`)            |
 | `artifact-id`       | ❌       | Required for Maven: the artifact ID (e.g., `my-app`)              |
 | `artifact-version`  | ❌       | Required for Maven: the artifact version (e.g., `1.0.0`)          |
@@ -90,17 +88,46 @@ jobs:
         run: mvn clean package
 
       - name: Upload Maven JAR to Nexus
-        uses: SourceSpring/action-nexus-upload@v0.1.9
+        uses: SourceSpring/action-nexus-upload@v0.1.10
         with:
-          nexus-repo-url: ${{ secrets.NEXUS_URL }} or "https://nexus.myorg.com"
+          nexus-repo-url: ${{ secrets.NEXUS_URL }} or "https://nexus.example.com"
           nexus-username: ${{ secrets.NEXUS_USERNAME }}
           nexus-password: ${{ secrets.NEXUS_PASSWORD }}
           nexus-repository: "maven-releases"
           artifact-path: "target/my-app-1.0.0.jar"
-          artifact-format: "maven"
+          artifact-format: "maven2"
           artifact-group-id: "com.example"
           artifact-id: "my-app"
           artifact-version: "1.0.0"
+```
+
+## ✅ Example: Upload a Python or NPM Artifacts
+
+```yaml
+name: Upload Python or NPM to Nexus
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Upload Pypi/npm to Nexus
+        uses: SourceSpring/action-nexus-upload@v0.1.10
+        with:
+          nexus-repo-url: ${{ secrets.NEXUS_URL }} or "https://nexus.example.com"
+          nexus-username: ${{ secrets.NEXUS_USERNAME }}
+          nexus-password: ${{ secrets.NEXUS_PASSWORD }}
+          nexus-repository: "repo-name"
+          artifact-path: "dist/my-app.tgz" or "path/my-app.tar.gz"
+          artifact-format: "pypi" or "npm"
 ```
 
 ---
