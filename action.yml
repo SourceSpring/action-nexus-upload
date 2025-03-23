@@ -1,0 +1,85 @@
+name: Publish Artifact to Nexus
+description: Publish an artifact to Nexus Repository Manager
+
+inputs:
+  artifact-path:
+    description: 'Full path to the artifact file'
+    required: true
+  artifact-format:
+    description: 'Type of artifact (raw, npm, pypi, maven)'
+    required: true
+  artifact-version:
+    description: 'Version of the artifact (required for Maven artifacts)'
+    required: false
+  artifact-group-id:
+    description: 'Group ID (required for Maven artifacts)'
+    required: false
+  artifact-id:
+    description: 'Name (ID) of the artifact (required for Maven artifacts)'
+    required: false
+  nexus-repository:
+    description: 'Target Nexus repository name'
+    required: true
+  nexus-repo-url:
+    description: 'Nexus REST API Base URL'
+    required: true
+  nexus-username:
+    description: 'Username for authentication'
+    required: true
+  nexus-password:
+    description: 'Password for authentication'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Upload artifact to Nexus
+      shell: bash
+      run: |
+        # Create auth and URL vars
+        auth="-u ${{ inputs.nexus-username }}:${{ inputs.nexus-password }}"
+        upload_url="${{ inputs.nexus-repo-url }}/service/rest/v1/components?repository=${{ inputs.nexus-repository }}"
+
+        echo "Uploading artifact: ${{ inputs.artifact-path }}"
+        echo "Artifact format: ${{ inputs.artifact-format }}"
+        artifact_format=$(echo "${{ inputs.artifact-format }}" | awk '{print $1}')
+
+        case "$artifact_format" in
+          raw)
+            echo "Uploading RAW artifact: ${{ inputs.artifact-path }}"
+            response=$(curl -s -o response_output.txt -w "%{http_code}" $auth "$upload_url" \
+              -F "raw.directory=/" -F "raw.asset1=@${{ inputs.artifact-path }}")
+            ;;
+          npm|pypi)
+            echo "Uploading $artifact_format artifact: ${{ inputs.artifact-path }}"
+            response=$(curl -s -o response_output.txt -w "%{http_code}" $auth "$upload_url" \
+              -F "${{ inputs.artifact-format }}.asset1=@${{ inputs.artifact-path }}")
+            ;;
+          maven)
+            echo "Uploading Maven artifact: ${{ inputs.artifact-path }}"
+            response=$(curl -s -o response_output.txt -w "%{http_code}" $auth "$upload_url" \
+              -F "${{ inputs.artifact-format }}.groupId=${{ inputs.artifact-group-id }}" \
+              -F "${{ inputs.artifact-format }}.artifactId=${{ inputs.artifact-id }}" \
+              -F "${{ inputs.artifact-format }}.version=${{ inputs.artifact-version }}" \
+              -F "${{ inputs.artifact-format }}.asset1=@${{ inputs.artifact-path }}" \
+              -F "${{ inputs.artifact-format }}.asset1.extension=$(echo "${{ inputs.artifact-path }}" | rev | cut -d'.' -f1 | rev)")
+            ;;
+          *)
+            echo "❌ Error: Unsupported artifact type: $artifact_format"
+            exit 1
+            ;;
+        esac
+
+        if [[ "$response" =~ ^20[0-9]$ ]]; then
+          echo "✅ Successfully uploaded artifact. HTTP response: $response"
+        else
+          echo "❌ Upload failed. HTTP response: $response. Details: $(cat response_output.txt)"
+          exit 1
+        fi
+
+    - name: Cleanup
+      shell: bash
+      run: |
+        echo "Cleaning up temporary files..."
+        rm -f response_output.txt
+        echo "Cleanup completed."
