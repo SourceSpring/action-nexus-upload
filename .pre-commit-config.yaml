@@ -31,13 +31,16 @@ repos:
         args: [--severity=warning, --external-sources]
 
   # Markdown and documentation
-  - repo: local
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.17.2
     hooks:
-      - id: markdownlint
-        name: Lint Markdown files
-        entry: npx markdownlint-cli2
-        language: system
-        types: [markdown]
+      - id: markdownlint-cli2
+        name: Lint Markdown files with markdownlint-cli2
+        entry: markdownlint-cli2
+        language: node
+        args: ["--config", ".markdownlint.json"]
+        files: \.md$
+        pass_filenames: true
 
   # Commit message validation (local hook)
   - repo: local
