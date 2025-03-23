@@ -14,11 +14,6 @@ jobs:
           types: |
             feat
             fix
-            chore
             docs
-            refactor
-            test
-            ci
-            build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
