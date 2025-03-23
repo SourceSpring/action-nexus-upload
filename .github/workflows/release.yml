@@ -43,4 +43,3 @@ jobs:
 
       - name: Show release output
         run: echo "Released version ${{ steps.release.outputs.tag_name }}"
-
