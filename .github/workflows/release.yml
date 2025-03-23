@@ -38,7 +38,6 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           release-type: simple
-          changelog-types: "default"
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show release output
