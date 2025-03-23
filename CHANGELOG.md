@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.8](https://github.com/SourceSpring/action-nexus-upload/compare/v0.1.7...v0.1.8) (2025-03-23)
+
+
+### Bug Fixes
+
+* fix pre-commit hook configuration ([#43](https://github.com/SourceSpring/action-nexus-upload/issues/43)) ([41f0b09](https://github.com/SourceSpring/action-nexus-upload/commit/41f0b09fc7981398c78aeebdabb5b42e9fc5bc2b))
+* fix pre-commit hook configuration ([#44](https://github.com/SourceSpring/action-nexus-upload/issues/44)) ([6882c6e](https://github.com/SourceSpring/action-nexus-upload/commit/6882c6e7832a917c4ca2feba30b4eee3b1ca896b))
+
 ## [0.1.7](https://github.com/SourceSpring/action-nexus-upload/compare/v0.1.6...v0.1.7) (2025-03-23)
 
 
