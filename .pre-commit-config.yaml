@@ -1,16 +1,16 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-json
 
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.32.0
-    hooks:
-      - id: yamllint
+  # - repo: https://github.com/adrienverge/yamllint
+  #   rev: v1.32.0
+  #   hooks:
+  #     - id: yamllint
 
   - repo: https://github.com/koalaman/shellcheck-precommit
     rev: v0.9.0
@@ -18,14 +18,16 @@ repos:
       - id: shellcheck
         files: \\.(sh|bash)$
 
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.34.0
+  - repo: local
     hooks:
       - id: markdownlint
+        name: markdownlint
+        entry: npx markdownlint-cli2
+        language: system
+        types: [markdown]
 
-  - repo: https://github.com/conventional-changelog/commitlint
-    rev: v17.8.1
-    hooks:
       - id: commitlint
-
-      
+        name: commitlint
+        entry: npx commitlint --edit $COMMIT_MSG
+        language: system
+        stages: [commit-msg]

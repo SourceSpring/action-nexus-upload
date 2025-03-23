@@ -83,4 +83,3 @@ runs:
         echo "Cleaning up temporary files..."
         rm -f response_output.txt
         echo "Cleanup completed."
-        
