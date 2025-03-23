@@ -44,6 +44,6 @@ repos:
     hooks:
       - id: commitlint
         name: Commit message validation
-        entry: npx commitlint --edit $COMMIT_MSG
+        entry: npx commitlint --edit
         language: system
         stages: [commit-msg]
