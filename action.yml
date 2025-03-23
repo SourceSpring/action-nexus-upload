@@ -82,3 +82,7 @@ runs:
         echo "Cleaning up temporary files..."
         rm -f response_output.txt
         echo "Cleanup completed."
+
+    - name: Done
+      shell: bash
+      run: echo "Artifact upload completed successfully."
