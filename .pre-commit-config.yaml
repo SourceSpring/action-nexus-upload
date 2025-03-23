@@ -36,7 +36,11 @@ repos:
     hooks:
       - id: markdownlint-cli2
         name: Lint Markdown files with markdownlint-cli2
+        entry: markdownlint-cli2
+        language: node
+        args: ["--config", ".markdownlint.json"]
         files: \.md$
+        pass_filenames: true
 
   # Commit message validation (local hook)
   - repo: local
