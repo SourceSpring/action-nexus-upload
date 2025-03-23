@@ -23,7 +23,7 @@ on:
 
 jobs:
   upload:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -75,7 +75,7 @@ on:
 
 jobs:
     upload:
-        runs-on: ubuntu-lates
+        runs-on: ubuntu-latest
 
         steps:
             - name: Checkout code
