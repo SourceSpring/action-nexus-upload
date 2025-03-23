@@ -28,4 +28,5 @@ jobs:
       - name: Run release-please
         uses: google-github-actions/release-please-action@v4
         with:
-          release-type: simple
+          release-type: simple # or "beta" or "rc"
+
