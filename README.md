@@ -1,10 +1,6 @@
 <p align="center">
-  <img src="https://your-image-url.com/sourcespring.png" alt="SourceSpring Logo" width="250">
+  <img src="https://github.com/SourceSpring/action-nexus-upload/blob/main/sourcespring_logo.png" alt="SourceSpring Logo" width="250">
 </p>
-
-# SourceSpring Nexus3 Upload Action
-
-## 🔗 Project Status
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/SourceSpring/action-nexus-upload/main.yml)](https://github.com/SourceSpring/action-nexus-upload)
 [![Version](https://img.shields.io/github/v/release/SourceSpring/action-nexus-upload)](https://github.com/SourceSpring/action-nexus-upload/releases)
@@ -20,6 +16,9 @@
 
 [marketplace]: https://github.com/marketplace/actions/publish-artifact-to-nexus
 [marketplace-img]: https://img.shields.io/badge/marketplace-nexus--upload-blue?logo=github
+
+# SourceSpring Nexus3 Upload Action
+
 ## Overview action-nexus-upload
 
 This GitHub Action uploads artifacts (including Maven JARs, npm packages, PyPI
