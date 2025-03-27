@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://your-image-url.com/sourcespring.png" alt="SourceSpring Logo" width="250">
+</p>
+
 # SourceSpring Nexus3 Upload Action
 
 ## 🔗 Project Status
@@ -6,15 +10,16 @@
 [![Version](https://img.shields.io/github/v/release/SourceSpring/action-nexus-upload)](https://github.com/SourceSpring/action-nexus-upload/releases)
 [![Coverage](https://img.shields.io/badge/coverage-93%25-brightgreen)](https://github.com/SourceSpring/action-nexus-upload)
 ![GitHub last commit](https://img.shields.io/github/last-commit/SourceSpring/action-nexus-upload)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/SourceSpring/action-nexus-upload)
 ![GitHub issues](https://img.shields.io/github/issues/SourceSpring/action-nexus-upload)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/SourceSpring/action-nexus-upload)
+![GitHub license](https://img.shields.io/github/license/SourceSpring/action-nexus-upload)
+
+[![GitHub Marketplace][marketplace-img]][marketplace]
 ![GitHub forks](https://img.shields.io/github/forks/SourceSpring/action-nexus-upload?style=social)
 ![GitHub stars](https://img.shields.io/github/stars/SourceSpring/action-nexus-upload?style=social)
-![GitHub license](https://img.shields.io/github/license/SourceSpring/action-nexus-upload)
-![Used By](https://img.shields.io/github/dependents-repo/SourceSpring/action-nexus-upload)
 
-
+[marketplace]: https://github.com/marketplace/actions/publish-artifact-to-nexus
+[marketplace-img]: https://img.shields.io/badge/marketplace-nexus--upload-blue?logo=github
 ## Overview action-nexus-upload
 
 This GitHub Action uploads artifacts (including Maven JARs, npm packages, PyPI
