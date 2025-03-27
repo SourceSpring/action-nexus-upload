@@ -2,6 +2,10 @@
   <img src="https://github.com/SourceSpring/action-nexus-upload/blob/main/sourcespring_logo.png" alt="SourceSpring Logo" width="250">
 </p>
 
+<h1 align="center">SourceSpring Nexus3 Upload Action</h1>
+
+<div align="center">
+
 [![Build Status](https://img.shields.io/github/actions/workflow/status/SourceSpring/action-nexus-upload/main.yml)](https://github.com/SourceSpring/action-nexus-upload)
 [![Version](https://img.shields.io/github/v/release/SourceSpring/action-nexus-upload)](https://github.com/SourceSpring/action-nexus-upload/releases)
 [![Coverage](https://img.shields.io/badge/coverage-93%25-brightgreen)](https://github.com/SourceSpring/action-nexus-upload)
@@ -10,24 +14,21 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/SourceSpring/action-nexus-upload)
 ![GitHub license](https://img.shields.io/github/license/SourceSpring/action-nexus-upload)
 
-[![GitHub Marketplace][marketplace-img]][marketplace]
+[![GitHub Marketplace](https://img.shields.io/badge/GitHub-Marketplace-blue?style=flat&logo=github)](https://github.com/SourceSpring/action-nexus-upload)
 ![GitHub forks](https://img.shields.io/github/forks/SourceSpring/action-nexus-upload?style=social)
 ![GitHub stars](https://img.shields.io/github/stars/SourceSpring/action-nexus-upload?style=social)
 
-[marketplace]: https://github.com/marketplace/actions/publish-artifact-to-nexus
-[marketplace-img]: https://img.shields.io/badge/marketplace-nexus--upload-blue?logo=github
+</div>
 
-# SourceSpring Nexus3 Upload Action
+---
 
-## Overview action-nexus-upload
+## Overview: action-nexus-upload
 
-This GitHub Action uploads artifacts (including Maven JARs, npm packages, PyPI
-distributions, or raw files) to a Nexus3 repository.
+This GitHub Action uploads artifacts (including Maven JARs, npm packages, PyPI distributions, or raw files) to a Nexus3 repository.
 
 ## ✅ Usage
 
-To use this action, create a workflow file in your repository (e.g.,
-`.github/workflows/upload.yml`) with the following content:
+To use this action, create a workflow file in your repository (e.g., `.github/workflows/upload.yml`) with the following content:
 
 ```yaml
 name: Upload to Nexus
@@ -76,7 +77,6 @@ jobs:
 | `artifact-id`       | ❌       | Required for Maven: the artifact ID (e.g., `my-app`)              |
 | `artifact-version`  | ❌       | Required for Maven: the artifact version (e.g., `1.0.0`)          |
 
-
 ## ✅ Example: Upload a Maven JAR
 
 ```yaml
@@ -106,7 +106,7 @@ jobs:
       - name: Upload Maven JAR to Nexus
         uses: SourceSpring/action-nexus-upload@v0.1.10
         with:
-          nexus-repo-url: ${{ secrets.NEXUS_URL }} or "https://nexus.example.com"
+          nexus-repo-url: ${{ secrets.NEXUS_URL }}
           nexus-username: ${{ secrets.NEXUS_USERNAME }}
           nexus-password: ${{ secrets.NEXUS_PASSWORD }}
           nexus-repository: "maven-releases"
@@ -115,35 +115,6 @@ jobs:
           artifact-group-id: "com.example"
           artifact-id: "my-app"
           artifact-version: "1.0.0"
-```
-
-## ✅ Example: Upload a Python or NPM Artifacts
-
-```yaml
-name: Upload Python or NPM to Nexus
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  upload:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Upload Pypi/npm to Nexus
-        uses: SourceSpring/action-nexus-upload@v0.1.10
-        with:
-          nexus-repo-url: ${{ secrets.NEXUS_URL }} or "https://nexus.example.com"
-          nexus-username: ${{ secrets.NEXUS_USERNAME }}
-          nexus-password: ${{ secrets.NEXUS_PASSWORD }}
-          nexus-repository: "repo-name"
-          artifact-path: "dist/my-app.tgz" or "path/my-app.tar.gz"
-          artifact-format: "pypi" or "npm"
 ```
 
 ## ✅ Secrets to configure
