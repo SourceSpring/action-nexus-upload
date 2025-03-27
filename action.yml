@@ -1,5 +1,5 @@
-name: Publish Artifact to Nexus
-description: Publish an artifact to Nexus Repository Manager
+name: Nexus Upload
+description: Publish an artifact to Nexus/Nexus3 Repository Manager
 
 inputs:
   artifact-path:
