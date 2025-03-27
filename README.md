@@ -8,7 +8,6 @@ distributions, or raw files) to a Nexus repository.
 [![Build Status](https://img.shields.io/github/actions/workflow/status/SourceSpring/action-nexus-upload/main.yml)](https://github.com/SourceSpring/action-nexus-upload)
 [![Version](https://img.shields.io/github/v/release/SourceSpring/action-nexus-upload)](https://github.com/SourceSpring/action-nexus-upload/releases)
 [![Coverage](https://img.shields.io/badge/coverage-93%25-brightgreen)](https://github.com/SourceSpring/action-nexus-upload)
-![Version Updater](https://img.shields.io/github/actions/workflow/status/SourceSpring/action-nexus-upload/main.yml?branch=main)
 ![GitHub last commit](https://img.shields.io/github/last-commit/SourceSpring/action-nexus-upload)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/SourceSpring/action-nexus-upload)
 ![GitHub issues](https://img.shields.io/github/issues/SourceSpring/action-nexus-upload)
