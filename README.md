@@ -1,7 +1,4 @@
-# action-nexus-upload
-
-This GitHub Action uploads artifacts (including Maven JARs, npm packages, PyPI
-distributions, or raw files) to a Nexus repository.
+# SourceSpring Nexus3 Upload Action
 
 ## 🔗 Project Status
 
@@ -17,7 +14,11 @@ distributions, or raw files) to a Nexus repository.
 ![GitHub license](https://img.shields.io/github/license/SourceSpring/action-nexus-upload)
 ![Used By](https://img.shields.io/github/dependents-repo/SourceSpring/action-nexus-upload)
 
----
+
+## Overview action-nexus-upload
+
+This GitHub Action uploads artifacts (including Maven JARs, npm packages, PyPI
+distributions, or raw files) to a Nexus3 repository.
 
 ## ✅ Usage
 
@@ -57,8 +58,6 @@ jobs:
           artifact-version: "1.0.0"
 ```
 
----
-
 ## ✅ Inputs
 
 | Name                | Required | Description                                                       |
@@ -73,7 +72,6 @@ jobs:
 | `artifact-id`       | ❌       | Required for Maven: the artifact ID (e.g., `my-app`)              |
 | `artifact-version`  | ❌       | Required for Maven: the artifact version (e.g., `1.0.0`)          |
 
----
 
 ## ✅ Example: Upload a Maven JAR
 
@@ -144,8 +142,6 @@ jobs:
           artifact-format: "pypi" or "npm"
 ```
 
----
-
 ## ✅ Secrets to configure
 
 Add these secrets in your GitHub repository settings:
@@ -154,3 +150,14 @@ Add these secrets in your GitHub repository settings:
 | ---------------- | ----------------------- |
 | `NEXUS_USERNAME` | Nexus username          |
 | `NEXUS_PASSWORD` | Nexus password or token |
+
+## 🤝 Contributing
+
+We welcome contributions! Please check our GitHub repository for guidelines on:
+- Reporting issues
+- Suggesting features
+- Submitting pull requests
+
+## 📄 License
+
+This project is licensed under the terms specified in the GitHub repository.
