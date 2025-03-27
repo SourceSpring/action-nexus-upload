@@ -130,6 +130,7 @@ Add these secrets in your GitHub repository settings:
 ## 🤝 Contributing
 
 We welcome contributions! Please check our GitHub repository for guidelines on:
+
 - Reporting issues
 - Suggesting features
 - Submitting pull requests
