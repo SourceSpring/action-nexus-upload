@@ -17,6 +17,7 @@
 [![GitHub Marketplace](https://img.shields.io/badge/GitHub-Marketplace-blue?style=flat&logo=github)](https://github.com/SourceSpring/action-nexus-upload)
 ![GitHub forks](https://img.shields.io/github/forks/SourceSpring/action-nexus-upload?style=social)
 ![GitHub stars](https://img.shields.io/github/stars/SourceSpring/action-nexus-upload?style=social)
+[![Used By](https://img.shields.io/badge/Used%20By-View%20Dependents-blue)](https://github.com/SourceSpring/action-nexus-upload/network/dependents)
 
 </div>
 
