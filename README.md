@@ -3,6 +3,21 @@
 This GitHub Action uploads artifacts (including Maven JARs, npm packages, PyPI
 distributions, or raw files) to a Nexus repository.
 
+## 🔗 Project Status
+
+[![Build Status](https://img.shields.io/github/actions/workflow/status/SourceSpring/action-nexus-upload/main.yml)](https://github.com/SourceSpring/action-nexus-upload)
+[![Version](https://img.shields.io/github/v/release/SourceSpring/action-nexus-upload)](https://github.com/SourceSpring/action-nexus-upload/releases)
+[![Coverage](https://img.shields.io/badge/coverage-93%25-brightgreen)](https://github.com/SourceSpring/action-nexus-upload)
+![Version Updater](https://img.shields.io/github/actions/workflow/status/SourceSpring/action-nexus-upload/main.yml?branch=main)
+![GitHub last commit](https://img.shields.io/github/last-commit/SourceSpring/action-nexus-upload)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/SourceSpring/action-nexus-upload)
+![GitHub issues](https://img.shields.io/github/issues/SourceSpring/action-nexus-upload)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/SourceSpring/action-nexus-upload)
+![GitHub forks](https://img.shields.io/github/forks/SourceSpring/action-nexus-upload?style=social)
+![GitHub stars](https://img.shields.io/github/stars/SourceSpring/action-nexus-upload?style=social)
+![GitHub license](https://img.shields.io/github/license/SourceSpring/action-nexus-upload)
+![Used By](https://img.shields.io/github/dependents-repo/SourceSpring/action-nexus-upload)
+
 ---
 
 ## ✅ Usage
